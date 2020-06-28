@@ -1,11 +1,15 @@
 [
   {
     "level": "INFO",
-    "message": "Start JSON generation. Platform version: 26 min SDK version: x86_64"
+    "message": "Version minSdkVersion\u003d\u002725\u0027 is mapped to \u002724\u0027."
   },
   {
     "level": "INFO",
-    "message": "JSON \u0027D:\\Mini Project\\app\\.cxx\\cmake\\release\\x86_64\\android_gradle_build.json\u0027 was up-to-date"
+    "message": "Start JSON generation. Platform version: 24 min SDK version: x86_64"
+  },
+  {
+    "level": "INFO",
+    "message": "JSON \u0027G:\\hellotripper\\Mini_Project\\app\\.cxx\\cmake\\release\\x86_64\\android_gradle_build.json\u0027 was up-to-date"
   },
   {
     "level": "INFO",

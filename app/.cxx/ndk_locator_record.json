@@ -1,5 +1,5 @@
 {
-  "ndkFolder": "C:\\Users\\DELL\\AppData\\Local\\Android\\Sdk\\ndk\\21.2.6472646",
+  "ndkFolder": "C:\\Users\\Rajat\\AppData\\Local\\Android\\Sdk\\ndk\\21.0.6113669",
   "messages": [
     {
       "level": "INFO",
@@ -15,23 +15,23 @@
     },
     {
       "level": "INFO",
-      "message": "sdkFolder is C:\\Users\\DELL\\AppData\\Local\\Android\\Sdk"
+      "message": "sdkFolder is C:\\Users\\Rajat\\AppData\\Local\\Android\\Sdk"
     },
     {
       "level": "INFO",
-      "message": "Considering C:\\Users\\DELL\\AppData\\Local\\Android\\Sdk\\ndk-bundle in SDK ndk-bundle folder"
+      "message": "Considering C:\\Users\\Rajat\\AppData\\Local\\Android\\Sdk\\ndk-bundle in SDK ndk-bundle folder"
     },
     {
       "level": "INFO",
-      "message": "Considering C:\\Users\\DELL\\AppData\\Local\\Android\\Sdk\\ndk\\21.2.6472646 in SDK ndk folder"
+      "message": "Considering C:\\Users\\Rajat\\AppData\\Local\\Android\\Sdk\\ndk\\21.0.6113669 in SDK ndk folder"
     },
     {
       "level": "INFO",
-      "message": "Rejected C:\\Users\\DELL\\AppData\\Local\\Android\\Sdk\\ndk-bundle in SDK ndk-bundle folder because that location has no source.properties"
+      "message": "Rejected C:\\Users\\Rajat\\AppData\\Local\\Android\\Sdk\\ndk-bundle in SDK ndk-bundle folder because that location has no source.properties"
     },
     {
       "level": "INFO",
-      "message": "No user requested version, choosing C:\\Users\\DELL\\AppData\\Local\\Android\\Sdk\\ndk\\21.2.6472646 which is version 21.2.6472646"
+      "message": "No user requested version, choosing C:\\Users\\Rajat\\AppData\\Local\\Android\\Sdk\\ndk\\21.0.6113669 which is version 21.0.6113669"
     }
   ]
 }

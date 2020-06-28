@@ -162,16 +162,16 @@ Java_com_example_miniproject_Native_detectLandmarks(JNIEnv* env, jclass, jbyteAr
     // convert yuv-frame to cv::Mat
     cv::Mat yuvMat(height + height / 2, width, CV_8UC1, (unsigned char *) data);
     cv::Mat grayMat(height, width, CV_8UC1);
-
+    cv::cvtColor(yuvMat, grayMat, cv::COLOR_YUV2GRAY_NV21);
     // to grayscale
-    if (imageFormat == NV21)
-        cv::cvtColor(yuvMat, grayMat, cv::COLOR_YUV2GRAY_NV21);  // was CV_YUV2GRAY_NV21
-    else if (imageFormat == YV12)
-        cv::cvtColor(yuvMat, grayMat, cv::COLOR_YUV2GRAY_YV12);  // was CV_YUV2GRAY_YV12
+//    if (imageFormat == NV21)
+//        cv::cvtColor(yuvMat, grayMat, cv::COLOR_YUV2GRAY_NV21);  // was CV_YUV2GRAY_NV21
+//    else if (imageFormat == YV12)
+//        cv::cvtColor(yuvMat, grayMat, cv::COLOR_YUV2GRAY_YV12);  // was CV_YUV2GRAY_YV12
 
     // adjust rotation according to phone orientation
     rotateMat(grayMat, rotation);
-
+    LOGD("---------------------------");
     // crop face for enhancements
     cv::Rect faceROI(left, top, right - left, bottom - top);
     cv::Mat face = grayMat(faceROI);
@@ -206,6 +206,7 @@ Java_com_example_miniproject_Native_detectLandmarks(JNIEnv* env, jclass, jbyteAr
             buffer[k++] = p.x();
             buffer[k++] = p.y();
         }
+
 
         // set the content of buffer into result array
         env->SetLongArrayRegion(result, 0, len, buffer);
@@ -248,3 +249,26 @@ Java_com_example_miniproject_Native_detectLandmarks(JNIEnv* env, jclass, jbyteAr
 }
 
 //--------------------------------------------------------------------------------------------------
+void renderToMat(std::vector<dlib::full_object_detection>& dets, cv::Mat& dst){
+    cv::Scalar color;
+    int sz = 3,l;
+    color = cv::Scalar(0,255,0);
+    l=dets.size();
+    for(unsigned long idx = 0; idx < l; idx++) {
+
+        //left eye
+        for (unsigned long i = 37; i <= 41; ++i)
+            cv::line(dst, cv::Point(dets[idx].part(i).x(), dets[idx].part(i).y()),
+                     cv::Point(dets[idx].part(i - 1).x(), dets[idx].part(i - 1).y()), color, sz);
+        cv::line(dst, cv::Point(dets[idx].part(36).x(), dets[idx].part(36).y()),
+                 cv::Point(dets[idx].part(41).x(), dets[idx].part(41).y()), color, sz);
+        //right eye
+        for (unsigned long i = 43; i <= 47; ++i)
+            cv::line(dst, cv::Point(dets[idx].part(i).x(), dets[idx].part(i).y()),
+                     cv::Point(dets[idx].part(i - 1).x(), dets[idx].part(i - 1).y()), color, sz);
+        cv::line(dst, cv::Point(dets[idx].part(42).x(), dets[idx].part(42).y()),
+                 cv::Point(dets[idx].part(47).x(), dets[idx].part(47).y()), color, sz);
+        //lips out part
+
+    }
+}

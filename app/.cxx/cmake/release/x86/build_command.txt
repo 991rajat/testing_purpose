@@ -1,16 +1,16 @@
-Executable : C:\Users\DELL\AppData\Local\Android\Sdk\cmake\3.6.4111459\bin\cmake.exe
+Executable : C:\Users\Rajat\AppData\Local\Android\Sdk\cmake\3.6.4111459\bin\cmake.exe
 arguments : 
--HD:\Mini Project\app
--BD:\Mini Project\app\.cxx\cmake\release\x86
+-HG:\hellotripper\Mini_Project\app
+-BG:\hellotripper\Mini_Project\app\.cxx\cmake\release\x86
 -DANDROID_ABI=x86
--DANDROID_PLATFORM=android-26
--DCMAKE_LIBRARY_OUTPUT_DIRECTORY=D:\Mini Project\app\build\intermediates\cmake\release\obj\x86
+-DANDROID_PLATFORM=android-24
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=G:\hellotripper\Mini_Project\app\build\intermediates\cmake\release\obj\x86
 -DCMAKE_BUILD_TYPE=Release
--DANDROID_NDK=C:\Users\DELL\AppData\Local\Android\Sdk\ndk\21.2.6472646
+-DANDROID_NDK=C:\Users\Rajat\AppData\Local\Android\Sdk\ndk\21.0.6113669
 -DCMAKE_C_FLAGS=-O3
 -DCMAKE_CXX_FLAGS=-std=c++11 -frtti -fexceptions
--DCMAKE_TOOLCHAIN_FILE=C:\Users\DELL\AppData\Local\Android\Sdk\ndk\21.2.6472646\build\cmake\android.toolchain.cmake
--DCMAKE_MAKE_PROGRAM=C:\Users\DELL\AppData\Local\Android\Sdk\cmake\3.6.4111459\bin\ninja.exe
+-DCMAKE_TOOLCHAIN_FILE=C:\Users\Rajat\AppData\Local\Android\Sdk\ndk\21.0.6113669\build\cmake\android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=C:\Users\Rajat\AppData\Local\Android\Sdk\cmake\3.6.4111459\bin\ninja.exe
 -GAndroid Gradle - Ninja
 -DANDROID_PLATFORM=android-16
 -DANDROID_TOOLCHAIN=clang
