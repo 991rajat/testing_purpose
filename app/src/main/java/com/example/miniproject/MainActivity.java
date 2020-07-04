@@ -49,6 +49,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 import java.util.concurrent.Semaphore;
@@ -65,8 +66,8 @@ public class MainActivity extends AppCompatActivity  {
     private ImageView MyCameraPreview = null;
     private FrameLayout mainLayout;
     private Camera camera;
-    private int PreviewSizeWidth = 720;
-    private int PreviewSizeHeight= 720;
+    private int PreviewSizeWidth = 1920;
+    private int PreviewSizeHeight= 1280;
 
 
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
@@ -88,9 +89,14 @@ public class MainActivity extends AppCompatActivity  {
 
         Model model = new Model(this);
         model.start();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //Set this APK no title
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
         MyCameraPreview = new ImageView(this);
         captureButton = findViewById(R.id.capture);
         final SurfaceView camView = new SurfaceView(this);
+
 
         captureButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,17 +108,22 @@ public class MainActivity extends AppCompatActivity  {
 
                 SurfaceHolder camHolder = camView.getHolder();
 
-                camPreview = new CameraPreview(PreviewSizeWidth, PreviewSizeHeight, MyCameraPreview);
+                camPreview = new CameraPreview(MainActivity.this,MyCameraPreview);
                 camHolder.addCallback(camPreview);
                 camHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-
-
                 mainLayout = (FrameLayout) findViewById(R.id.camera);
-                mainLayout.addView(camView, new ViewGroup.LayoutParams(PreviewSizeWidth, PreviewSizeHeight));
-                mainLayout.addView(MyCameraPreview, new ViewGroup.LayoutParams(PreviewSizeWidth, PreviewSizeHeight));
+                Log.d("phelleee","0--------------------");
+                mainLayout.addView(camView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+                mainLayout.addView(MyCameraPreview, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
             }
         });
 
+    }
+    protected void onPause()
+    {
+        if ( camPreview != null)
+            camPreview.onPause();
+        super.onPause();
     }
 
 
